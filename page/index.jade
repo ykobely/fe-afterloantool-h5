@@ -1,0 +1,33 @@
+doctype
+html(lang="zh-cn")
+    head
+        meta(charset="UTF-8")
+        title 欢迎来到现场催收
+        meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        meta(name="apple-mobile-web-app-capable", content="yes")
+        meta(name="apple-mobile-web-app-status-bar-style", content="black")
+        meta(name="format-detection", content="telephone=no")
+
+        script(src="/static/script/libs/jquery-2.1.4.min.js")
+        script(src="/static/script/libs/fastclick.js")
+        script(src="/static/script/libs/vue.js")
+        script(src="/static/script/libs/vue-router.js")
+        script(src="/static/script/libs/dingtalk.min.js")
+        script(src="/static/script/upload/plupload.full.min.js")
+
+        link(rel="stylesheet",href="/static/style/page/index.css")
+        link(rel="stylesheet",href="/static/script/libs/mint-ui/style.css")
+        script(src="/static/script/libs/mint-ui/index.js")
+        if 'ONLINE' != FEPACK.ENV
+            script(src="/static/script/libs/vconsole.min.js")
+            script.
+                var vConsole = new VConsole();
+
+
+body
+    #app(v-cloak)
+        router-view
+
+    script(src="/static/script/index.js")
+    script.
+        document.body.addEventListener('touchstart',function(){})

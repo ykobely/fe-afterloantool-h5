@@ -1,0 +1,65 @@
+{
+    "server": {
+        "port": 8080
+    },
+    "release": {
+        "project": "fe-afterloantool-h5",
+        "domain": "//s1.yyfq.com",
+
+        "cases": {
+            "dev": {
+                "watch": true,
+                "version": false,
+                "optimize": false,
+                "domain": false,
+                "env": {
+                    "ENV": "DEV"
+                }
+            },
+            "qa": {
+                "watch": false,
+                "version": false,
+                "optimize": false,
+                "domain": true,
+                "www": "../__dist/",
+                "env": {
+                    "ENV": "QA"
+                }
+            },
+            "www": {
+                "watch": false,
+                "version": true,
+                "optimize": true,
+                "domain": true,
+                "www": "../__dist/",
+                "htmlVersion": true,
+                "env": {
+                    "ENV": "WWW"
+                }
+            }
+        },
+
+        "copy": [
+            "**/*.min.js",
+            "**/*.min.css",
+            "**/vue*.js",
+            "**/mint-ui/index.js",
+            "**/mint-ui/style.css"
+        ],
+        "ignore": [
+            "yypack.json"
+        ],
+        "postcss": {
+            "autoprefixer": {"browsers": ["last 2 versions", "iOS 7", "Android 4.4", "> 5%"]},
+            "pxtorem": {
+                "rootValue": 32,
+                "propWhiteList": [],
+                "mediaQuery": true,
+                "minPixelValue": 2
+            }
+        }
+    },
+    "deploy": {
+        "feReleaseGit": "git@gitlab.szyy.com:fe-release-group/fe-afterloantool-h5.git"
+    }
+}
